@@ -57,14 +57,14 @@
           text="Maximum length is 30">
         </app-vmessage>
         <app-vmessage
+          *ngIf="registerForm.get('userName')?.errors?.lowercase"
+          text="Must be lower case">
+        </app-vmessage>
+        <app-vmessage
           text="Username already taken"
           *ngIf="registerForm.get('userName')?.errors?.userNameTaken">
         </app-vmessage>
         <small *ngIf="registerForm.get('userName')?.valid" class="text-success">User available</small>
-        <!-- <app-vmessage
-          *ngIf="registerForm.get('userName')?.errors?.lowercase"
-          text="Must be lower case">
-        </app-vmessage> -->
         <!-- <app-vmessage
           *ngIf="registerForm.get('userName')?.errors?.pattern"
           text="Must be lower case">
