@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { lowerCaseValidator } from 'src/app/shared/validators/lower-case.validator';
+import { UserNotTakenValidatorService } from './user-not-taken.validator.service';
 
 @Component({
   selector: 'app-singup',
@@ -12,7 +13,8 @@ export class SignUpComponent implements OnInit {
   registerForm: FormGroup;
 
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private userNotTakenValidatorService: UserNotTakenValidatorService
   ) {
     this.registerForm = this.formBuilder.group({
       email: ['',
@@ -31,11 +33,12 @@ export class SignUpComponent implements OnInit {
       userName: ['',
         [
           Validators.required,
-          // Validators.pattern(/^[a-z0-9_\-]+$/),
           Validators.minLength(2),
           Validators.maxLength(30),
+          // Validators.pattern(/^[a-z0-9_\-]+$/),
           lowerCaseValidator
-        ]
+        ],
+        this.userNotTakenValidatorService.checkUserNameTaken()
       ],
       password: ['',
         [
