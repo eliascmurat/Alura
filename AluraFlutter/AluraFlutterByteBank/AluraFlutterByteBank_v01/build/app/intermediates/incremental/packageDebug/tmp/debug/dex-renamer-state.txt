@@ -1,0 +1,4 @@
+#Mon Jan 04 13:47:59 BRT 2021
+base.0=C\:\\Users\\elias\\Documents\\000_DOC_ELIAS\\Pessoal\\Projects\\02_Alura\\Flutter\\ByteBank\\ByteBank_01\\byteBank\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex

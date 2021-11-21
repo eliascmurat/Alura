@@ -1,0 +1,12 @@
+<app-search
+  (onTyping)="filter = $event"
+  [value]="filter">
+</app-search>
+
+<app-photos [photos]="photos | filterByDescription: filter"></app-photos>
+
+<app-load-button
+  *ngIf="hasMore"
+  (click)="load()"
+  [hasMore]="hasMore"
+></app-load-button>
