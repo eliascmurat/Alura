@@ -1,3 +1,4 @@
+import { UserNotTakenValidatorService } from './../signup/user-not-taken.validator.service';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -8,7 +9,7 @@ import { PlatformDetectorService } from '../../core/platform-detector/platform-d
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
-  styleUrls: ['./signin.component.css']
+  styleUrls: ['./signin.component.css'],
 })
 export class SignInComponent implements OnInit {
 
