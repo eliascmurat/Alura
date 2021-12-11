@@ -1,3 +1,4 @@
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PhotoFormComponent implements OnInit {
 
-  constructor() { }
+  photoForm: FormGroup;
 
-  ngOnInit(): void {
+  constructor(
+    private formBuilder: FormBuilder,
+  ) {
+    this.photoForm = this.formBuilder.group({
+      file: ['', Validators.required],
+      description: ['', Validators.maxLength(300)],
+      allowComments: [true]
+    });
+  }
+
+  ngOnInit() {
   }
 
 }
