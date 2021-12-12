@@ -1,10 +1,11 @@
 <div class="container">
-  <form [formGroup]="photoForm" class="row">
+  <form class="row" [formGroup]="photoForm" (ngSubmit)="upload">
     <div class="col-md-6 text-center">
       <input
         type="file"
         accept="image/*"
-        formControlName="file">
+        formControlName="file"
+        (change)="loadPhoto($event)">
       <app-vmessage
         text="Please, select a photo"
         *ngIf="photoForm.get('file')?.errors?.required">
@@ -33,7 +34,7 @@
         </label>
       </div>
 
-      <button type="submit" class="btn btn-primary btn-block" [disabled]="photoForm.invalid">
+      <button type="button" class="btn btn-primary btn-block" [disabled]="photoForm.invalid" (click)="upload()">
         Upload
       </button>
 

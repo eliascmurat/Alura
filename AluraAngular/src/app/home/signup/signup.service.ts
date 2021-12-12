@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { NewUser } from './new-user';
 
-const API = 'http://localhost:9000/';
+const API = 'http://localhost:3000/';
 
 @Injectable()
 export class SignUpService {

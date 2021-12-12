@@ -1,5 +1,8 @@
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+
+import { PhotoService } from '../photo/photo.service';
 
 @Component({
   selector: 'app-photo-form',
@@ -9,9 +12,12 @@ import { Component, OnInit } from '@angular/core';
 export class PhotoFormComponent implements OnInit {
 
   photoForm: FormGroup;
+  file: File | null = null;
 
   constructor(
     private formBuilder: FormBuilder,
+    private photoService: PhotoService,
+    private router: Router
   ) {
     this.photoForm = this.formBuilder.group({
       file: ['', Validators.required],
@@ -20,7 +26,21 @@ export class PhotoFormComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
+  ngOnInit() { }
+
+  loadPhoto(event: Event) {
+    const target = event.target as HTMLInputElement;
+    this.file = target?.files?.item(0) as File;
+  }
+
+  upload() {
+    const description = this.photoForm.get('description')?.value;
+    const allowComments = this.photoForm.get('allowComments')?.value;
+
+    if (this.file !== null) {
+      this.photoService.uploadPhoto(description, allowComments, this.file)
+        .subscribe(() => this.router.navigate(['']));
+    }
   }
 
 }
