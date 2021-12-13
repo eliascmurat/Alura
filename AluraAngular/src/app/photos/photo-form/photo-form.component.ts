@@ -13,6 +13,7 @@ export class PhotoFormComponent implements OnInit {
 
   photoForm: FormGroup;
   file: File | null = null;
+  preview: string = '';
 
   constructor(
     private formBuilder: FormBuilder,
@@ -31,6 +32,10 @@ export class PhotoFormComponent implements OnInit {
   loadPhoto(event: Event) {
     const target = event.target as HTMLInputElement;
     this.file = target?.files?.item(0) as File;
+
+    const reader = new FileReader();
+    reader.onload = (event: any) => this.preview = event.target?.result;
+    reader.readAsDataURL(this.file);
   }
 
   upload() {
