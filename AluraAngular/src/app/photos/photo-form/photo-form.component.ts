@@ -11,6 +11,14 @@ import { PhotoService } from '../photo/photo.service';
 })
 export class PhotoFormComponent implements OnInit {
 
+  /***
+   * TODO:
+   *
+   * Angular parte 03,
+   * 02 - Lapidando o upload,
+   * 07 - Seleção automática de arquivos.
+  ***/
+
   photoForm: FormGroup;
   file: File | null = null;
   preview: string = '';
