@@ -9,16 +9,8 @@
         <p class="text-left break-word">{{photo.description}}</p>
         <hr>
       </small>
-      <div class="mt-4">
-        <form>
-          <div class="input-group">
-            <textarea class="form-control"></textarea>
-            <div class="input-group-append">
-              <button class="btn btn-primary pull-left">Publish</button>
-            </div>
-          </div>
-        </form>
-      </div>
+
+      <app-photo-comments [photoId]="photo.id"></app-photo-comments>
     </div>
   </div>
 </div>
