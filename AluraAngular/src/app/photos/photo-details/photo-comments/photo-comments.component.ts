@@ -12,6 +12,7 @@ import { PhotoService } from '../../photo/photo.service';
 export class PhotoCommentsComponent implements OnInit {
 
   @Input() photoId: number = 0;
+  @Input() allowComments: boolean = true;
 
   comments$!: Observable<PhotoComment[]>;
 
@@ -32,6 +33,18 @@ export class PhotoCommentsComponent implements OnInit {
 
   getCommentsByPhotoId() {
     this.comments$ = this.photoService.getComments(this.photoId);
+  }
+
+  save() {
+    let comment: string = this.commentForm.get('comment')?.value;
+    this.photoService.addComment(this.photoId, comment)
+      .subscribe(
+        () => {
+          this.commentForm.reset();
+          alert('Comentário adicionado com sucesso!');
+          this.getCommentsByPhotoId();
+        }
+      );
   }
 
 }
