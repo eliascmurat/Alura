@@ -13,13 +13,17 @@
       </li>
   </ul>
   <div class="mt-4">
-      <form>
+      <form [formGroup]="commentForm">
           <div class="input-group">
-              <textarea class="form-control"></textarea>
+              <textarea class="form-control" formControlName="comment"></textarea>
               <div class="input-group-append">
-                  <button type="submit" class="btn btn-primary pull-left">Publish</button>
+                  <button type="submit" class="btn btn-primary pull-left" [disabled]="commentForm.invalid">Publish</button>
               </div>
           </div>
+          <app-vmessage
+            *ngIf="commentForm.get('comment')?.errors?.maxlength"
+            text="Maximum size alllowed is 255">
+          </app-vmessage>
       </form>
   </div>
 </div>
