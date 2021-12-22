@@ -1,5 +1,5 @@
 <div *ngIf="(comments$ | async) as comments">
-  <ul class="list-unstyled">
+  <ul class="list-unstyled comment-list">
       <li *ngFor="let comment of comments">
           <a class="text-dark font-weight-bold mr-1" [routerLink]="['/user', comment.userName]">
               {{ comment.userName }}
@@ -24,8 +24,8 @@
               </div>
           </div>
           <app-vmessage
-            text="Maximum size alllowed is 255">
-            *ngIf="commentForm.get('comment')?.errors?.maxlength"
+            text="Maximum size alllowed is 255"
+            *ngIf="commentForm.get('comment')?.errors?.maxlength">
           </app-vmessage>
       </form>
   </div>
