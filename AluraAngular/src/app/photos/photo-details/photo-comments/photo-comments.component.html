@@ -15,13 +15,13 @@
   <div class="mt-4">
       <form [formGroup]="commentForm" (ngSubmit)="save()">
           <div class="input-group">
-              <textarea class="form-control" formControlName="comment" *ngIf="allowComments; else notAllowedComments"></textarea>
+              <div class="input-group-append" *ngIf="allowComments; else notAllowedComments">
+                <textarea class="form-control" formControlName="comment"></textarea>
+                <button type="button" class="btn btn-primary pull-left" (click)="save()" [disabled]="commentForm.invalid">Publish</button>
+              </div>
               <ng-template #notAllowedComments>
                 <span>Commens disabled for this photo</span>
               </ng-template>
-              <div class="input-group-append">
-                  <button type="button" class="btn btn-primary pull-left" (click)="save()" [disabled]="commentForm.invalid">Publish</button>
-              </div>
           </div>
           <app-vmessage
             text="Maximum size alllowed is 255"
