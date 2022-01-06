@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { VmessageModule } from 'src/app/shared/components/vmessage/vmessage.module';
+import { showIfLoggedModule } from 'src/app/shared/directives/show-if-logged/show-if-logged.module';
 
 import { PhotoModule } from '../photo/photo.module';
 import { PhotoCommentsComponent } from './photo-comments/photo-comments.component';
@@ -20,7 +21,8 @@ import { PhotoOwnerOnlyDirective } from './photo-owner-only/photo-owner-only.dir
     PhotoModule,
     RouterModule,
     ReactiveFormsModule,
-    VmessageModule
+    VmessageModule,
+    showIfLoggedModule
   ],
   exports: [
     PhotoDetailsComponent,
