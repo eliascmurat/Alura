@@ -4,8 +4,9 @@ import { Injectable } from '@angular/core';
 import { Photo } from './photo';
 import { catchError, map } from 'rxjs/operators';
 import { of, throwError } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
-const API = 'http://localhost:3000/';
+const API = environment.apiUrl;
 
 @Injectable({
   providedIn: 'root'
