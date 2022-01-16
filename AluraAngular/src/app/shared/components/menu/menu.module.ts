@@ -1,17 +1,17 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
-import { ShowIfLoggedDirective } from './show-if-logged.directive';
+import { MenuComponent } from './menu.component';
 
 @NgModule({
   declarations: [
-    ShowIfLoggedDirective
+    MenuComponent
   ],
   imports: [
     CommonModule
   ],
   exports: [
-    ShowIfLoggedDirective
+    MenuComponent
   ]
 })
-export class ShowIfLoggedModule { }
+export class MenuModule { }
