@@ -1,0 +1,7 @@
+<div *ngIf="(loading$ | async) == 'loading'; then loading; else stopped"></div>
+<ng-template #stopped>
+    <hr class="stopped"/>
+</ng-template>
+<ng-template #loading>
+    <hr class="loading"/>
+</ng-template>
