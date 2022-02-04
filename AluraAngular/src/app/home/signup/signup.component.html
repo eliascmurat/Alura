@@ -9,11 +9,11 @@
           type="email"
           autofocus>
         <app-vmessage
-          *ngIf="registerForm.get('email')?.errors?.required && form.submitted"
+          *ngIf="registerForm.get('email')?.errors?.required && (form.submitted || registerForm.get('email')?.touched)"
           text="E-mail is required!">
         </app-vmessage>
         <app-vmessage
-          *ngIf="registerForm.get('email')?.errors?.email && form.submitted"
+          *ngIf="registerForm.get('email')?.errors?.email && (form.submitted || registerForm.get('email')?.touched)"
           text="Invalid e-mail">
         </app-vmessage>
     </div>
@@ -25,15 +25,15 @@
           class="form-control"
           type="text">
         <app-vmessage
-          *ngIf="registerForm.get('fullName')?.errors?.required && form.submitted"
+          *ngIf="registerForm.get('fullName')?.errors?.required && (form.submitted || registerForm.get('fullName')?.touched)"
           text="Full name is required!">
         </app-vmessage>
         <app-vmessage
-          *ngIf="registerForm.get('fullName')?.errors?.minlength && form.submitted"
+          *ngIf="registerForm.get('fullName')?.errors?.minlength && (form.submitted || registerForm.get('fullName')?.touched)"
           text="Minimum length is 2">
         </app-vmessage>
         <app-vmessage
-          *ngIf="registerForm.get('fullName')?.errors?.maxlength && form.submitted"
+          *ngIf="registerForm.get('fullName')?.errors?.maxlength && (form.submitted || registerForm.get('fullName')?.touched)"
           text="Maximum length is 40">
         </app-vmessage>
     </div>
@@ -45,26 +45,26 @@
           class="form-control"
           type="text">
         <app-vmessage
-          *ngIf="registerForm.get('userName')?.errors?.required && form.submitted"
+          *ngIf="registerForm.get('userName')?.errors?.required && (form.submitted || registerForm.get('userName')?.touched)"
           text="Username is required!">
         </app-vmessage>
         <app-vmessage
-          *ngIf="registerForm.get('userName')?.errors?.minlength && form.submitted"
+          *ngIf="registerForm.get('userName')?.errors?.minlength && (form.submitted || registerForm.get('userName')?.touched)"
           text="Minimum length is 2">
         </app-vmessage>
         <app-vmessage
-          *ngIf="registerForm.get('userName')?.errors?.maxlength && form.submitted"
+          *ngIf="registerForm.get('userName')?.errors?.maxlength && (form.submitted || registerForm.get('userName')?.touched)"
           text="Maximum length is 30">
         </app-vmessage>
         <app-vmessage
-          *ngIf="registerForm.get('userName')?.errors?.lowercase && form.submitted"
+          *ngIf="registerForm.get('userName')?.errors?.lowercase && (form.submitted || registerForm.get('userName')?.touched)"
           text="Must be lower case">
         </app-vmessage>
         <app-vmessage
           text="Username already taken"
-          *ngIf="registerForm.get('userName')?.errors?.userNameTaken && form.submitted">
+          *ngIf="registerForm.get('userName')?.errors?.userNameTaken && (form.submitted || registerForm.get('userName')?.touched)">
         </app-vmessage>
-        <small *ngIf="registerForm.get('userName')?.valid && form.submitted" class="text-success">User available</small>
+        <small *ngIf="registerForm.get('userName')?.valid && (form.submitted || registerForm.get('userName')?.touched)" class="text-success">User available</small>
         <!-- <app-vmessage
           *ngIf="registerForm.get('userName')?.errors?.pattern"
           text="Must be lower case">
@@ -78,15 +78,15 @@
           class="form-control"
           type="password">
         <app-vmessage
-          *ngIf="registerForm.get('password')?.errors?.required && form.submitted"
+          *ngIf="registerForm.get('password')?.errors?.required && (form.submitted || registerForm.get('password')?.touched)"
           text="Password is required!">
         </app-vmessage>
         <app-vmessage
-          *ngIf="registerForm.get('password')?.errors?.minlength && form.submitted"
+          *ngIf="registerForm.get('password')?.errors?.minlength && (form.submitted || registerForm.get('password')?.touched)"
           text="Minimum length is 8">
         </app-vmessage>
         <app-vmessage
-          *ngIf="registerForm.get('password')?.errors?.maxlength && form.submitted"
+          *ngIf="registerForm.get('password')?.errors?.maxlength && (form.submitted || registerForm.get('password')?.touched)"
           text="Maximum length is 14">
         </app-vmessage>
     </div>
