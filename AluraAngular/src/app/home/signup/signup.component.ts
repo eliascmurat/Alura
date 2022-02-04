@@ -59,15 +59,17 @@ export class SignUpComponent implements OnInit {
   ngOnInit() { }
 
   register() {
-    const newUser = this.registerForm.getRawValue() as NewUser;
-    this.signUpService
-      .signUp(newUser)
-      .subscribe(
-        () => this.router.navigate(['']),
-        err => {
-          alert('Ops... ocorreu um erro!\nTente novamente');
-          console.log(err);
-        }
-      )
+    if (this.registerForm.valid && !this.registerForm.pending) {
+      const newUser = this.registerForm.getRawValue() as NewUser;
+      this.signUpService
+        .signUp(newUser)
+        .subscribe(
+          () => this.router.navigate(['']),
+          err => {
+            alert('Ops... ocorreu um erro!\nTente novamente');
+            console.log(err);
+          }
+        );
+    }
   }
 }
