@@ -5,6 +5,7 @@ import { lowerCaseValidator } from 'src/app/shared/validators/lower-case.validat
 import { NewUser } from './new-user';
 import { UserNotTakenValidatorService } from './user-not-taken.validator.service';
 import { Router } from '@angular/router';
+import { userNamePassword } from './username-password.validator';
 
 @Component({
   selector: 'app-singup',
@@ -53,6 +54,8 @@ export class SignUpComponent implements OnInit {
           Validators.maxLength(14)
         ]
       ]
+    }, {
+      validator: userNamePassword
     });
   }
 
